@@ -2,9 +2,10 @@
 
 Backup for Databases
 
-WIP on:
+- MySQL (with rake task)
+- MySQL on Rails (with rake task)
 
-- MySQL (with and without rails)
+[![Build Status](https://travis-ci.org/mjacobus/koine-db_bkp.svg?branch=master)](https://travis-ci.org/mjacobus/koine-db_bkp)
 
 ## Installation
 
@@ -39,6 +40,33 @@ require 'koine/db_bkp/mysql/rails_dump'
 # credentials taken from current Rails.configuration.database_configuration[Rails.env]
 backup = Koine::DbBkp::Mysql::RailsDump.new
 backup.to_sql_file('/bkp/file.sql')
+```
+
+### Rake tasks
+
+```ruby
+require "koine/db_bkp"
+
+import 'lib/koine/tasks/mysql_dump.rake'
+import 'lib/koine/tasks/mysql_rails_dump.rake'
+```
+
+```bash
+export DB_HOST=some_host
+export DB_NAME=some_name
+export DB_USER=some_user
+export DB_PASSWORD=some_password
+export MYSQL_BACKUP_FILE='/foo/bar_{timestamp}.sql'
+
+rake koine:mysql:dump
+```
+
+```bash
+# database config will be taken from the Rails.configuration.database_configuration[ENV['RAILS_ENV']]
+
+export MYSQL_BACKUP_FILE='/foo/bar_{timestamp}.sql'
+
+rake koine:mysql:rails_dump
 ```
 
 ## Development
