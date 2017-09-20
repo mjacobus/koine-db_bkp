@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "koine-db_bkp"
   spec.version       = Koine::DbBkp::VERSION
   spec.authors       = ["Marcelo Jacobus"]
-  spec.email         = ["marcelo.jacobus@xing.com"]
+  spec.email         = ["marcelo.jacobus@fastmail.com"]
 
   spec.summary       = %q{Database backup for rails}
   spec.description   = %q{Database backup for rails}
@@ -29,6 +29,8 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+
+  spec.add_dependency "addressable", "~> 2.5"
 
   spec.add_development_dependency "bundler", "~> 1.14"
   spec.add_development_dependency "rake", "~> 10.0"
