@@ -3,8 +3,11 @@ require "rspec/core/rake_task"
 
 require "koine/db_bkp"
 
-import 'lib/koine/tasks/mysql_dump.rake'
-import 'lib/koine/tasks/mysql_rails_dump.rake'
+Koine::Tasks::MysqlDump.new
+
+Koine::Tasks::RailsMysqlDump.new do |t|
+  t.task_name = 'rails:mysql_dump'
+end
 
 RSpec::Core::RakeTask.new(:spec)
 

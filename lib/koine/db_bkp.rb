@@ -1,6 +1,11 @@
 require 'koine/db_bkp/version'
 
 module Koine
+  module Tasks
+    autoload :MysqlDump, 'koine/tasks/mysql_dump'
+    autoload :RailsMysqlDump, 'koine/tasks/rails_mysql_dump'
+  end
+
   module DbBkp
     autoload :Cli, 'koine/db_bkp/cli'
     autoload :FileName, 'koine/db_bkp/file_name'
