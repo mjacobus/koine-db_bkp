@@ -12,7 +12,7 @@ module Koine
       private
 
       def configuration
-        config = super.reject { |k, v| v.nil? }
+        config = super.reject { |_k, v| v.nil? }
         rails_config.merge(config)
       end
 

@@ -6,6 +6,8 @@ Backup for Databases
 - MySQL on Rails (with rake task)
 
 [![Build Status](https://travis-ci.org/mjacobus/koine-db_bkp.svg?branch=master)](https://travis-ci.org/mjacobus/koine-db_bkp)
+[![Code Climate](https://codeclimate.com/github/mjacobus/koine-db_bkp/badges/gpa.svg)](https://codeclimate.com/github/mjacobus/koine-db_bkp)
+[![Issue Count](https://codeclimate.com/github/mjacobus/koine-db_bkp/badges/issue_count.svg)](https://codeclimate.com/github/mjacobus/koine-db_bkp)
 
 ## Installation
 
