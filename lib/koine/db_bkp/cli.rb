@@ -7,7 +7,7 @@ module Koine
         exit_code = system_command(command).to_i
 
         unless exit_code == 0
-          raise CommandFailed, "Command '#{commadn}' exited with code #{exit_code}"
+          raise CommandFailed, "Command '#{command}' exited with code #{exit_code}"
         end
       end
 
