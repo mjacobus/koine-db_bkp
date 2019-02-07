@@ -17,9 +17,9 @@ module Koine
         def to_sql_file(file)
           parts = ['mysqldump']
 
-          parts.push("-h #{@hostname}") if @hostname
-          parts.push("-u #{@username}") if @username
-          parts.push("-p#{@password}") if @password
+          parts.push("-h #{escape(@hostname)}") if @hostname
+          parts.push("-u #{escape(@username)}") if @username
+          parts.push("-p#{escape(@password)}") if @password
 
           parts.push(@database)
 
@@ -30,6 +30,10 @@ module Koine
         end
 
         private
+
+        def escape(string)
+          Shellwords.escape(string)
+        end
 
         def normalize_config(config)
           config = config.reject { |_k, v| ['', nil].include?(v) }

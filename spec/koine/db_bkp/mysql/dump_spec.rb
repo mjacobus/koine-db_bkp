@@ -24,10 +24,10 @@ RSpec.describe Koine::DbBkp::Mysql::Dump do
     end
 
     it 'executes mysqldump with correct params' do
-      backup = described_class.new(hostname: 'host', database: 'db', 'password' => 'pwd')
+      backup = described_class.new(hostname: 'host', database: 'db', 'password' => 'pwd$123')
       backup.to_sql_file('/tmp/foo.sql')
 
-      cmd = 'mysqldump -h host -ppwd db > /tmp/foo.sql'
+      cmd = 'mysqldump -h host -ppwd\$123 db > /tmp/foo.sql'
 
       cli.execute('foo')
       expect(cli).to have_received(:execute).with(cmd)
